@@ -58,13 +58,13 @@ def triage(ticket_text: str) -> dict:
         raw_response = llm.chat(messages)
         return llm.parse_json(raw_response)
     except Exception as e:
-        return {{
+        return {
             "category": "Unknown",
             "priority": "P2",
             "escalate": True,
             "reason": f"System error: {str(e)}",
             "draft": "I'm sorry, I'm having trouble processing your request right now. I've escalated this to a human agent who will get back to you shortly."
-        }}
+        }
 
 
 def _mock_triage(text: str) -> dict:
